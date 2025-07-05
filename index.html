@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbdulAziz Tahir - Web & App Developer Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Particles.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- Typed.js CDN -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- Swiper.js CDN CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out; /* Smoother transition */
+            position: relative; /* Needed for particle canvas positioning */
+            z-index: 1; /* Ensure content is above particles */
+        }
+
+        /* Particle background styling */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0; /* Behind content */
+        }
+
+        /* Root CSS Variables for Theme Colors */
+        :root {
+            /* Light Theme Defaults */
+            --primary-color-light: #a87f5a;
+            --secondary-color-light: #8b7d6b;
+            --background-color-light: #fcf8f3;
+            --card-background-light: #ffffff;
+            --card-border-light: #e0d8cf;
+            --header-background-light: #ffffff;
+            --tag-background-light: #f3e9df;
+            --copy-btn-background-light: #e0d8cf;
+            --copy-btn-color-light: #5a4a3a;
+            --theme-icon-color-light: #f39c12; /* Specific color for theme icon in light mode */
+
+            /* Dark Theme Defaults */
+            --primary-color-dark: #66c2ff;
+            --secondary-color-dark: #aab8c2;
+            --background-color-dark: #1c2838;
+            --card-background-dark: #283b4f;
+            --card-border-dark: #405a72;
+            --header-background-dark: #283b4f;
+            --tag-background-dark: #405a72;
+            --copy-btn-background-dark: #405a72;
+            --copy-btn-color-dark: #e0e7ee;
+            --theme-icon-color-dark: #aab8c2; /* Specific color for theme icon in dark mode */
+        }
+
+        /* Light Theme */
+        .light {
+            background-color: var(--background-color-light);
+            color: #5a4a3a; /* Dark brown for text */
+        }
+        .light .bg-card {
+            background-color: var(--card-background-light);
+            border-color: var(--card-border-light);
+        }
+        .light .text-primary {
+            color: var(--primary-color-light);
+        }
+        .light .text-secondary {
+            color: var(--secondary-color-light);
+        }
+        .light .border-primary {
+            border-color: var(--primary-color-light);
+        }
+        .light .hover-bg-primary:hover {
+            background-color: #926b4a; /* Darker brown on hover */
+            color: #ffffff;
+        }
+        .light .hover-text-primary:hover {
+            color: #926b4a; /* Darker brown on hover */
+        }
+        .light .bg-header {
+            background-color: var(--header-background-light);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* More prominent shadow */
+        }
+        .light .theme-icon {
+            color: var(--theme-icon-color-light);
+        }
+        .light .bg-gray-200 { /* Tag background */
+            background-color: var(--tag-background-light);
+        }
+        .light .text-gray-800 { /* Tag text */
+            color: #5a4a3a;
+        }
+        .light .copy-btn {
+            background-color: var(--copy-btn-background-light);
+            color: var(--copy-btn-color-light);
+        }
+        .light .copy-btn:hover {
+            background-color: #d1c6bb;
+        }
+
+
+        /* Dark Theme */
+        .dark {
+            background-color: var(--background-color-dark);
+            color: #e0e7ee; /* Light blue-grey for text */
+        }
+        .dark .bg-card {
+            background-color: var(--card-background-dark);
+            border-color: var(--card-border-dark);
+        }
+        .dark .text-primary {
+            color: var(--primary-color-dark);
+        }
+        .dark .text-secondary {
+            color: var(--secondary-color-dark);
+        }
+        .dark .border-primary {
+            border-color: var(--primary-color-dark);
+        }
+        .dark .hover-bg-primary:hover {
+            background-color: #4da6e0; /* Darker sky blue on hover */
+            color: #ffffff;
+        }
+        .dark .hover-text-primary:hover {
+            color: #4da6e0; /* Darker sky blue on hover */
+        }
+        .dark .bg-header {
+            background-color: var(--header-background-dark);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+        }
+        .dark .theme-icon {
+            color: var(--theme-icon-color-dark);
+        }
+        .dark .bg-gray-600 { /* Tag background */
+            background-color: var(--tag-background-dark);
+        }
+        .dark .text-gray-200 { /* Tag text */
+            color: #e0e7ee;
+        }
+        .dark .copy-btn {
+            background-color: var(--copy-btn-background-dark);
+            color: var(--copy-btn-color-dark);
+        }
+        .dark .copy-btn:hover {
+            background-color: #587994;
+        }
+
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Slower fade */
+        }
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Slower scale */
+        }
+        .scale-in.appear {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Typing effect for hero text */
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .15em solid var(--primary-color-light); /* Light theme cursor */
+            animation: typing 3s steps(40, end) forwards, blink-caret .75s step-end infinite;
+        }
+        .dark .typing-effect {
+            border-right: .15em solid var(--primary-color-dark); /* Dark theme cursor */
+        }
+
+        /* Typing animation */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        /* Blinking cursor animation */
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: currentColor; }
+        }
+
+        /* Toast Notification Styling */
+        #toast-notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #28a745; /* Green */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            z-index: 1000;
+        }
+        #toast-notification.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Swiper custom styling for navigation buttons if needed */
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--swiper-navigation-color); /* Use CSS variable for theme consistency */
+        }
+        .swiper-pagination-bullet-active {
+            background: var(--swiper-pagination-color) !important; /* Use CSS variable for theme consistency */
+        }
+    </style>
+</head>
+<body id="body" class="transition-colors duration-300">
+    <!-- Particles.js container -->
+    <div id="particles-js"></div>
+
+    <!-- Header -->
+    <header class="bg-header fixed w-full z-50 py-4 px-6 md:px-12 rounded-b-xl">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="#body" class="text-2xl font-bold text-primary rounded-md p-2">AbdulAziz Tahir</a>
+            <div class="flex items-center space-x-6">
+                <ul class="hidden md:flex space-x-6">
+                    <li><a href="#about" class="text-secondary hover-text-primary font-medium rounded-md p-2">About</a></li>
+                    <li><a href="#skills" class="text-secondary hover-text-primary font-medium rounded-md p-2">Skills</a></li>
+                    <li><a href="#projects" class="text-secondary hover-text-primary font-medium rounded-md p-2">Projects</a></li>
+                    <li><a href="#contact" class="text-secondary hover-text-primary font-medium rounded-md p-2">Contact</a></li>
+                </ul>
+                <button id="theme-toggle" class=" p-2 rounded-full bg-card hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none h-10 w-10">
+                    <!-- New Theme toggle icon: fa-solid fa-circle-half-stroke -->
+                    <i class="fa-solid fa-circle-half-stroke h-6 w-6 theme-icon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-20 relative z-10"> <!-- Ensure main content is above particles -->
+        <!-- Hero Section -->
+        <section id="hero" class="container mx-auto px-6 py-20 flex flex-col items-center justify-center text-center min-h-screen">
+            <div class="max-w-4xl fade-in">
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4 text-primary">
+                    Hello, I'm AbdulAziz Tahir
+                </h1>
+                <p class="text-xl md:text-2xl text-secondary mb-8">
+                    <span id="typed-output"></span> <!-- Typed.js output here -->
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#projects" class="inline-block bg-primary text-primary px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="inline-block border border-primary text-primary px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover-bg-primary hover:text-white transform hover:scale-105 transition-all duration-300">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+              <!-- About Section -->
+        <section id="about" class="container mx-auto px-6 py-16">
+            <h2 class="text-4xl font-bold text-center mb-12 text-primary fade-in">About Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <!-- About Me Card 1 -->
+                <div class="bg-card p-8 rounded-xl shadow-lg border border-card fade-in transform hover:scale-[1.01] transition-transform duration-300">
+                    <p class="text-lg text-secondary leading-relaxed mb-4">
+                        I'm AbdulAziz Tahir, a web and app developer from Karachi, Pakistan. My unique journey blends traditional Islamic education with modern digital skills, fostering discipline and a thirst for knowledge.
+                    </p>
+                    <p class="text-lg text-secondary leading-relaxed">
+                        Currently, I'm pursuing Islamic education at <span class="font-semibold text-primary">Jamia Dar Ul Uloom Karachi</span>, while also enhancing my tech skills through the <span class="font-semibold text-primary">Web & App Development course at SMIT</span> (since Nov 2024). I'm passionate about building real-world solutions and actively participate in hackathons to innovate and solve complex problems. My goal is to create robust, user-friendly, and meaningful applications.
+                    </p>
+                </div>
+                <!-- About Me Card 2 -->
+                <div class="bg-card p-8 rounded-xl shadow-lg border border-card fade-in transform hover:scale-[1.01] transition-transform duration-300">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">My Journey & Passion</h3>
+                    <ul class="list-disc list-inside text-lg text-secondary space-y-3">
+                        <li><span class="font-medium">Dual Education:</span> Islamic studies and modern web/app development.</li>
+                        <li><span class="font-medium">Practical Learner:</span> Focus on building functional applications.</li>
+                        <li><span class="font-medium">Hackathon Enthusiast:</span> Enjoy collaborating and rapid prototyping.</li>
+                        <li><span class="font-medium">Continuous Learner:</span> Always exploring new technologies and best practices.</li>
+                        <li><span class="font-medium">Problem Solver:</span> Driven to craft efficient, user-centric digital solutions.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="container mx-auto px-6 py-16">
+            <h2 class="text-4xl font-bold text-center mb-12 text-primary fade-in">My Skills</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <!-- Skill Card: HTML -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-card flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300 scale-in">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 Icon" class="mb-4 w-16 h-16">
+                    <h3 class="text-xl font-semibold text-primary mb-2">HTML5</h3>
+                    <p class="text-secondary">Semantic, structured web content.</p>
+                </div>
+                <!-- Skill Card: CSS -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-card flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300 scale-in">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 Icon" class="mb-4 w-16 h-16">
+                    <h3 class="text-xl font-semibold text-primary mb-2">CSS3</h3>
+                    <p class="text-secondary">Modern styling, responsive layouts.</p>
+                </div>
+                <!-- Skill Card: JavaScript -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-card flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300 scale-in">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript Icon" class="mb-4 w-16 h-16">
+                    <h3 class="text-xl font-semibold text-primary mb-2">JavaScript</h3>
+                    <p class="text-secondary">Interactive web experiences, DOM manipulation.</p>
+                </div>
+                <!-- Skill Card: Bootstrap -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-card flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300 scale-in">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap Icon" class="mb-4 w-16 h-16">
+                    <h3 class="text-xl font-semibold text-primary mb-2">Bootstrap</h3>
+                    <p class="text-secondary">Rapid prototyping responsive designs.</p>
+                </div>
+                <!-- Skill Card: Firebase -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-card flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300 scale-in">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase Icon" class="mb-4 w-16 h-16">
+                    <h3 class="text-xl font-semibold text-primary mb-2">Firebase</h3>
+                    <p class="text-secondary">Firestore for databases, Auth for user management.</p>
+                </div>
+                <!-- Skill Card: Responsive Design -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-card flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300 scale-in">
+                    <i class="fa-solid fa-mobile-alt fa-3x mb-4 text-primary"></i>
+                    <h3 class="text-xl font-semibold text-primary mb-2">Responsive Design</h3>
+                    <p class="text-secondary">Optimal viewing across all devices.</p>
+                </div>
+                <!-- Skill Card: Problem Solving -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-card flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300 scale-in">
+                    <i class="fa-solid fa-lightbulb fa-3x mb-4 text-primary"></i>
+                    <h3 class="text-xl font-semibold text-primary mb-2">Problem Solving</h3>
+                    <p class="text-secondary">Analytical thinking, effective solutions.</p>
+                </div>
+                <!-- Skill Card: Continuous Learning -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-card flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300 scale-in">
+                    <i class="fa-solid fa-book-open fa-3x mb-4 text-primary"></i>
+                    <h3 class="text-xl font-semibold text-primary mb-2">Continuous Learning</h3>
+                    <p class="text-secondary">Staying updated with latest tech and trends.</p>
+                </div>
+            </div>
+        </section>
+
+      
+ <!-- Projects Section -->
+        <section id="projects" class="container mx-auto px-6 py-16">
+            <h2 class="text-4xl font-bold text-center mb-12 text-primary fade-in">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 with Swiper Carousel -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-card transform hover:scale-105 transition-transform duration-300 scale-in">
+                    <!-- Swiper -->
+                    <div class="swiper mySwiper w-full h-48 mb-4 rounded-lg overflow-hidden">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="./images/todoL.png" alt="Project 1 Image 1" class="w-full h-full object-cover">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./images/todoM.png" alt="Project 1 Image 2" class="w-full h-full object-cover">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="./images/todoS.png" alt="Project 1 Image 3" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Navigation (Arrows) -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-primary mb-2">Dynamic To-Do List App</h3>
+                    <p class="text-secondary mb-4">Responsive web app for task management.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-200 text-gray-800 text-sm px-3 py-1 rounded-full dark:bg-gray-600 dark:text-gray-200">HTML</span>
+                        <span class="bg-gray-200 text-gray-800 text-sm px-3 py-1 rounded-full dark:bg-gray-600 dark:text-gray-200">CSS</span>
+                        <span class="bg-gray-200 text-gray-800 text-sm px-3 py-1 rounded-full dark:bg-gray-600 dark:text-gray-200">JavaScript</span>
+                        <span class="bg-gray-200 text-gray-800 text-sm px-3 py-1 rounded-full dark:bg-gray-600 dark:text-gray-200">Firestore</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <a href="https://abdulaziz2397.github.io/Dynamic-To-Do-List-App/" target="_blank" class="text-primary hover:underline font-medium">View Live</a>
+                        <a href="https://github.com/AbdulAziz2397/Dynamic-To-Do-List-App" target="_blank" class="text-primary hover:underline font-medium">GitHub Repo</a>
+                    </div>
+                </div>
+                <!-- Project Card 2 (Placeholder) -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-card transform hover:scale-105 transition-transform duration-300 scale-in">
+                    <img src="https://placehold.co/400x250/e0d8cf/8b7d6b?text=Mobile+First+Design" alt="Mobile First Design Project Placeholder" class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <h3 class="text-2xl font-semibold text-primary mb-2">E-commerce Product Page</h3>
+                    <p class="text-secondary mb-4">Mobile-first product page with interactive elements.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-200 text-gray-800 text-sm px-3 py-1 rounded-full dark:bg-gray-600 dark:text-gray-200">HTML</span>
+                        <span class="bg-gray-200 text-gray-800 text-sm px-3 py-1 rounded-full dark:bg-gray-600 dark:text-gray-200">CSS</span>
+                        <span class="bg-gray-200 text-gray-800 text-sm px-3 py-1 rounded-full dark:bg-gray-600 dark:text-gray-200">Bootstrap</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <a href="#" class="text-primary hover:underline font-medium">View Live</a>
+                        <a href="#" class="text-primary hover:underline font-medium">GitHub Repo</a>
+                    </div>
+                </div>
+                <!-- Project Card 3 (Placeholder) -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-card transform hover:scale-105 transition-transform duration-300 scale-in">
+                    <img src="https://placehold.co/400x250/e0d8cf/8b7d6b?text=Firebase+Integration" alt="Firebase Integration Project Placeholder" class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <h3 class="text-2xl font-semibold text-primary mb-2">Simple Chat Application</h3>
+                    <p class="text-secondary mb-4">Basic real-time chat app using Firebase.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-200 text-gray-800 text-sm px-3 py-1 rounded-full dark:bg-gray-600 dark:text-gray-200">HTML</span>
+                        <span class="bg-gray-200 text-gray-800 text-sm px-3 py-1 rounded-full dark:bg-gray-600 dark:text-gray-200">JavaScript</span>
+                        <span class="bg-gray-200 text-gray-800 text-sm px-3 py-1 rounded-full dark:bg-gray-600 dark:text-gray-200">Firebase</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <a href="#" class="text-primary hover:underline font-medium">View Live</a>
+                        <a href="#" class="text-primary hover:underline font-medium">GitHub Repo</a>
+                    </div>
+                </div>
+                <!-- Project Card 4 (Placeholder) -->
+                <div class="bg-card p-6 rounded-xl shadow-lg border border-card transform hover:scale-105 transition-transform duration-300 scale-in">
+                    <img src="https://placehold.co/400x250/e0d8cf/8b7d6b?text=Landing+Page" alt="Landing Page Project Placeholder" class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <h3 class="text-2xl font-semibold text-primary mb-2">Modern Business Landing Page</h3>
+                    <p class="text-secondary mb-4">Sleek, single-page business website.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-gray-200 text-gray-800 text-sm px-3 py-1 rounded-full dark:bg-gray-600 dark:text-gray-200">HTML</span>
+                        <span class="bg-gray-200 text-gray-800 text-sm px-3 py-1 rounded-full dark:bg-gray-600 dark:text-gray-200">Tailwind CSS</span>
+                        <span class="bg-gray-200 text-gray-800 text-sm px-3 py-1 rounded-full dark:bg-gray-600 dark:text-gray-200">JavaScript</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <a href="#" class="text-primary hover:underline font-medium">View Live</a>
+                        <a href="#" class="text-primary hover:underline font-medium">GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12 fade-in">
+                <a href="#" class="inline-block bg-primary text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                    View All Projects
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container mx-auto px-6 py-16">
+            <h2 class="text-4xl font-bold text-center mb-12 text-primary fade-in">Get in Touch</h2>
+            <div class="max-w-2xl mx-auto bg-card p-8 rounded-xl shadow-lg border border-card fade-in">
+                <p class="text-lg text-secondary text-center mb-8">
+                    I'm always open to new opportunities, collaborations, or just a friendly chat. Feel free to reach out!
+                </p>
+                <form class="space-y-6" action="https://formspree.io/f/yourformid" method="POST"> <!-- Replace 'yourformid' with your actual Formspree form ID -->
+                    <div>
+                        <label for="name" class="block text-secondary text-sm font-medium mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-primary focus:border-primary" placeholder="Your Name" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-secondary text-sm font-medium mb-2">Email</label>
+                        <div class="flex items-center">
+                            <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-primary focus:border-primary" placeholder="your.email@example.com" value="">
+                            <button type="button" id="copy-email-btn" class="copy-btn ml-2 p-3 rounded-lg text-sm font-semibold transition-colors duration-200">
+                                <i class="fa-solid fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-secondary text-sm font-medium mb-2">Message</label>
+                        <textarea id="message" name="message" rows="6" class="w-full p-3 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-white focus:ring-primary focus:border-primary" placeholder="Your message..." required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-primary text-primary px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+                <div class="mt-8 text-center">
+                    <p class="text-secondary">You can also connect with me on:</p>
+                    <div class="flex justify-center space-x-6 mt-4">
+                        <a href="#" target="_blank" class="text-primary hover-text-primary text-2xl" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in w-8 h-8"></i>
+                        </a>
+                        <a href="#" target="_blank" class="text-primary hover-text-primary text-2xl" aria-label="GitHub">
+                            <i class="fab fa-github w-8 h-8"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-header py-8 px-6 md:px-12 mt-16 rounded-t-xl">
+        <div class="container mx-auto text-center text-secondary">
+            <p>&copy; <span id="current-year"></span> AbdulAziz Tahir. All rights reserved.</p>
+            <p class="mt-2">Built with <span class="text-red-500">&hearts;</span> and Tailwind CSS.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-notification" class="hidden">
+        Email copied to clipboard!
+    </div>
+
+    <!-- Swiper.js CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Declare mySwiper globally
+        let mySwiper;
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+                htmlElement.classList.remove('light');
+            } else {
+                htmlElement.classList.add('light');
+                htmlElement.classList.remove('dark');
+            }
+            localStorage.setItem('theme', theme);
+
+            // Update particle colors if particles.js is initialized
+            if (window.pJSDom && window.pJSDom.length > 0) {
+                updateParticleColors(theme);
+            }
+
+            // Update Swiper colors if Swiper is initialized
+            // This is called here because theme change affects Swiper's appearance
+            if (mySwiper) {
+                updateSwiperColors();
+            }
+        }
+
+        // Set Current Year in Footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Typed.js for Hero Tagline
+        const typed = new Typed('#typed-output', {
+            strings: [
+                "A passionate Web & App Developer from Karachi, Pakistan.",
+                "Building real-world solutions with HTML, CSS, & JavaScript.",
+                "Exploring modern technologies at SMIT.",
+                "Actively participating in hackathons.",
+                "Constantly learning and innovating."
+            ],
+            typeSpeed: 50,
+            backSpeed: 25,
+            backDelay: 1500,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|',
+        });
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .scale-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Particles.js Initialization
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#cccccc" // Placeholder, will be set by updateParticleColors
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#cccccc", // Placeholder, will be set by updateParticleColors
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Function to update particle colors based on theme
+        function updateParticleColors(theme) {
+            if (window.pJSDom && window.pJSDom.length > 0) {
+                const particlesJson = window.pJSDom[0].pJS;
+                if (theme === 'dark') {
+                    particlesJson.particles.color.value = '#aab8c2';
+                    particlesJson.particles.line_linked.color = '#405a72';
+                } else {
+                    particlesJson.particles.color.value = '#8b7d6b';
+                    particlesJson.particles.line_linked.color = '#e0d8cf';
+                }
+                particlesJson.fn.particlesRefresh();
+            }
+        }
+
+        // Copy to Clipboard Functionality with Toast Notification
+        const copyEmailBtn = document.getElementById('copy-email-btn');
+        const emailInput = document.getElementById('email');
+        const toastNotification = document.getElementById('toast-notification');
+
+        copyEmailBtn.addEventListener('click', () => {
+            emailInput.select();
+            emailInput.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+
+            toastNotification.classList.add('show');
+            setTimeout(() => {
+                toastNotification.classList.remove('show');
+            }, 2000);
+        });
+
+        // Swiper Initialization
+        function initializeSwiper() {
+            // Only destroy if mySwiper is already an instance to prevent errors on re-initialization
+            if (mySwiper instanceof Swiper) {
+                mySwiper.destroy(true, true);
+            }
+            mySwiper = new Swiper('.mySwiper', {
+                loop: true, // Enable looping
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+            // Immediately update Swiper colors after initialization
+            updateSwiperColors();
+        }
+
+        // Function to update Swiper navigation and pagination colors based on theme
+        function updateSwiperColors() {
+            const rootStyle = getComputedStyle(document.documentElement);
+            // Get primary color from CSS variables defined in :root
+            const primaryColor = htmlElement.classList.contains('dark') ?
+                                 rootStyle.getPropertyValue('--primary-color-dark') :
+                                 rootStyle.getPropertyValue('--primary-color-light');
+
+            // Set CSS variables for Swiper's internal use
+            document.documentElement.style.setProperty('--swiper-navigation-color', primaryColor);
+            document.documentElement.style.setProperty('--swiper-pagination-color', primaryColor);
+
+            // If Swiper instance exists, update it.
+            if (mySwiper) {
+                mySwiper.update();
+            }
+        }
+
+        // DOMContentLoaded listener to ensure all elements are loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Initialize Swiper first. This will assign the `mySwiper` variable and set initial colors.
+            initializeSwiper();
+
+            // 2. Apply the saved theme. This will update particle colors and re-update Swiper colors.
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else {
+                setTheme('light'); // Default theme
+            }
+
+            // Fallback for particles.js if it loads very late.
+            // setTheme already calls updateParticleColors, but this is an extra safety.
+            setTimeout(() => {
+                const currentTheme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+                updateParticleColors(currentTheme);
+            }, 500);
+        });
+
+        // Event listener for theme toggle button (separate from DOMContentLoaded for clarity)
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('light')) {
+                setTheme('dark');
+            } else {
+                setTheme('light');
+            }
+            // Swiper colors are updated within setTheme now.
+        });
+    </script>
+</body>
+</html>

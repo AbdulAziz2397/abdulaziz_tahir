@@ -1,0 +1,162 @@
+.Experiences-sec {
+    background-color: #111827;
+    padding: 96px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Experience-text {
+    width: 730px;
+    margin-bottom: 80px;
+}
+
+.Experience-text>h3 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+.Experience-text>h3>span {
+    color: #FACC15;
+}
+
+.Experience-text>p {
+    font-size: 16px;
+    color: #6B7280;
+}
+
+.Experience-cards {
+    width: 1110px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.Ex-card {
+    width: 100%;
+    background: #020617;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    border-radius: 10px;
+}
+
+.Ex-card>span.date-span {
+    font-size: 20px;
+    color: #D1D5DB;
+}
+
+.Ex-card>h3 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #FACC15;
+}
+
+.Ex-card>p {
+    font-size: 16px;
+    color: #6B7280;
+}
+
+/* Responsive Design */
+@media (max-width: 1199px) {
+    .Experience-container {
+        padding: 40px;
+    }
+
+    .Experience-cards {
+        width: 100%;
+        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .Ex-card {
+        width: 100%;
+        padding: 24px;
+    }
+
+    .Ex-card-1 {
+        grid-column: 1 / 3;
+    }
+}
+
+@media (max-width: 991px) {
+    .Experiences-sec {
+        padding: 80px 20px;
+    }
+
+    .Experience-cards {
+        gap: 20px;
+    }
+
+    .Ex-card {
+        /* width: 300px; */
+        padding: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Experiences-sec {
+        padding: 60px 20px;
+    }
+
+    .Experience-text {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .Experience-text>h3 {
+        font-size: 32px;
+    }
+
+    .Experience-cards {
+        flex-direction: column;
+        grid-template-columns: repeat(1, 1fr);
+        align-items: center;
+        gap: 30px;
+    }
+    .Ex-card {
+        width: 100%;
+    }
+    .Ex-card-1 {
+        grid-column: auto / auto    ;
+    }
+}
+
+@media (max-width: 480px) {
+    .Experiences-sec {
+        padding: 40px 15px;
+    }
+
+    .Experience-container {
+        padding: 20px;
+    }
+
+    .Experience-text>h3 {
+        font-size: 28px;
+    }
+
+    .Experience-text>p {
+        font-size: 14px;
+    }
+
+    .Ex-card {
+        padding: 20px;
+        gap: 24px;
+    }
+
+    .Ex-card>span.date-span {
+        font-size: 18px;
+    }
+
+    .Ex-card>h3 {
+        font-size: 22px;
+    }
+
+    .Ex-card>p {
+        font-size: 14px;
+    }
+}

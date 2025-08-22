@@ -1,0 +1,163 @@
+* {
+    font-family: "Lexend Deca", sans-serif;
+}
+
+#heroSection {
+    background-color: #111827;
+    display: flex;
+    justify-content: center;
+    padding: 96px 165px;
+}
+
+.hero-box {
+    width: 1092px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    width: 466px;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.hero-greeting {
+    font-size: 16px;
+    color: #EAB308;
+    line-height: 27px;
+}
+
+.hero-name {
+    font-size: 42px;
+    font-weight: bold;
+    line-height: 64px;
+}
+
+.hero-description {
+    font-size: 16px;
+    color: #6B7280;
+    line-height: 27px;
+}
+.hero-description>strong{
+    color: #848d9e;
+}
+
+.hero-media-container {
+    width: 427px;
+    height: 427px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.hero-image {
+    width: 100%;
+    border-radius: 10%;
+}
+
+/* Responsive Design */
+@media (max-width: 1199px) {
+    #heroSection {
+        padding: 96px 40px;
+    }
+
+    .hero-box {
+        width: 100%;
+        max-width: 1092px;
+    }
+}
+
+@media (max-width: 1024px) {
+    #heroSection {
+        padding: 80px 20px;
+    }
+
+    .hero-box {
+        gap: 40px;
+    }
+
+    .hero-text {
+        width: 100%;
+        max-width: 466px;
+    }
+
+    .hero-media-container {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+@media (max-width: 880px) {
+    #heroSection {
+        height: auto;
+        padding: 60px 20px;
+    }
+
+    .hero-box {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        gap: 40px;
+    }
+
+    .hero-text {
+        align-items: center;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        padding:  0 24px;
+    }
+
+    .hero-name {
+        font-size: 32px;
+        line-height: 48px;
+    }
+
+    .hero-media-container {
+        width: 450px;
+        height: 450px;
+    }
+
+    .hero-social {
+        width: 250px;
+        padding: 8px;
+    }
+
+    .social-label {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #heroSection {
+        padding: 40px 15px;
+    }
+
+    .hero-name {
+        font-size: 28px;
+        line-height: 40px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-media-container {
+        width: 250px;
+        height: 250px;
+    }
+
+    .hero-social {
+        width: 220px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}

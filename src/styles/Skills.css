@@ -1,41 +1,46 @@
-.services-sec {
+/* ===== Skills Section (MERN Stack) ===== */
+.skills-sec {
+    width: 100%;
     background-color: #111827;
-    padding: 96px 165px;
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    justify-content: center;
+    padding: 96px 165px;
 }
 
-.service-text {
+.skill-text  {
     width: 461px;
     margin-bottom: 56px;
+    margin-right: auto;
 }
 
-.service-text>h3 {
+.skill-text>h3 {
     font-size: 42px;
     font-weight: bold;
     margin-bottom: 24px;
 }
 
-.service-text>h3>span {
+.skill-text>h3>span {
     color: #FACC15;
 }
 
-.service-text>p {
+.skill-text>p {
     font-size: 16px;
     color: #6B7280;
 }
-.service-text>p>strong {
+
+.skill-text>p>strong {
     color: #9298a5;
 }
 
-/* ===== Service Cards ===== */
-.service-cards {
-    display: flex;
+/* ===== Skill Cards ===== */
+.skill-cards {
+    display: grid;
     gap: 30px;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center; 
 }
 
-.service-cards>.card {
+.skill-cards>.card {
     width: 350px;
     background: #020617;
     padding: 32px;
@@ -47,113 +52,113 @@
     border-radius: 10px;
 }
 
-.service-cards>.card>i.fas {
+.skill-cards>.card>i.skill-icon {
     font-size: 40px;
     color: #FACC15;
 }
 
-.service-cards>.card>h3 {
+.skill-cards>.card>h3 {
     font-size: 26px;
     font-weight: bold;
     color: #F3F4F6;
 }
 
-.service-cards>.card>p {
+.skill-cards>.card>p {
     font-size: 16px;
     color: #6B7280;
 }
 
-.service-cards>.card>p>strong {
+.skill-cards>.card>p>strong {
     color: #9298a5;
 }
 
-/* Responsive Design */
+/* ===== Responsive Design ===== */
 @media (max-width: 1199px) {
-    .services-sec {
+    .skills-sec {
         padding: 96px 40px;
     }
 
-    .service-cards {
+    .skill-cards {
         gap: 20px;
     }
 
-    .service-cards>.card {
+    .skill-cards>.card {
         width: 300px;
         padding: 20px;
     }
 
-    .service-cards>.card>i.fas {
+    .skill-cards>.card>i.fas {
         font-size: 38px;
     }
 
-    .service-cards>.card>h3 {
+    .skill-cards>.card>h3 {
         font-size: 24px;
     }
 
-    .service-cards>.card>p {
+    .skill-cards>.card>p {
         font-size: 14px;
     }
 }
 
 @media (max-width: 964px) {
-    .services-sec {
+    .skills-sec {
         padding: 60px 20px;
     }
 
-    .service-text {
+    .skill-text {
         width: 100%;
         text-align: center;
         margin-bottom: 40px;
         padding: 0 40px;
     }
 
-    .service-text>h3 {
+    .skill-text>h3 {
         font-size: 32px;
     }
 
-    .service-cards {
-        flex-direction: column;
-        align-items: center;
+    .skill-cards {
         gap: 30px;
+        grid-template-columns: repeat(1, 1fr);
+
     }
 
-    .service-cards > .card {
+    .skill-cards>.card {
         width: 100%;
         max-width: 800px;
     }
 }
 
 @media (max-width: 480px) {
-    .services-sec {
+    .skills-sec {
         padding: 40px 15px;
     }
 
-    .service-text {
+    .skill-text {
         padding: 0 20px;
     }
 
-    .service-text>h3 {
+    .skill-text>h3 {
         font-size: 28px;
     }
 
-    .service-text>p {
+    .skill-text>p {
         font-size: 14px;
     }
 
-    .service-cards > .card {
+    .skill-cards>.card {
         padding: 20px;
         gap: 24px;
     }
 
-    .service-cards > .card>i.fas {
+    .skill-cards>.card>i.fas {
         font-size: 32px;
     }
 
-    .service-cards > .card>h3 {
+    .skill-cards>.card>h3 {
         font-size: 22px;
     }
 
-    .service-cards > .card>p {
+    .skill-cards>.card>p {
         font-size: 14px;
     }
 }

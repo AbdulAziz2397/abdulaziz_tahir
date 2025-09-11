@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import '../styles/Navbar.css';
+import '../styles/Navbar.css'
 
-export const Navbar = () => {
+const Navbar = () => {
   const [isToggled, setIsToggled] = useState(false);
 
   const toggleMenu = () => {
@@ -9,7 +9,6 @@ export const Navbar = () => {
   };
 
   return (
-
     <nav>
       <div className="nav-box">
         <h1>
@@ -21,8 +20,8 @@ export const Navbar = () => {
           <li><a href={'#heroSection'} className='link'>HOME</a></li>
           <li><a href={'#aboutSection'} className='link'>ABOUT</a></li>
           <li><a href={'#servicesSec'} className='link'>SERVICES</a></li>
-          <li><a href={'#portfolio'} className='link'>PORTFOLIO</a></li>
-          <li><a href={'#ExperiencesSec'} className='link'>RESUME</a></li>
+          {/* <li><a href={'#portfolio'} className='link'>PORTFOLIO</a></li> */}
+          <li><a href={'#skillsSec'} className='link'>SKILLS</a></li>
           <li><a href={'#contactSec'} className='link'>CONTACT</a></li>
         </ul>
 
@@ -33,6 +32,7 @@ export const Navbar = () => {
         ></i>
       </div>
     </nav>
+  )
+}
 
-  );
-};
+export default Navbar

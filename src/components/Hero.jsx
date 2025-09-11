@@ -18,7 +18,7 @@ export const Hero = () => {
                     </span>
 
                     <p className="hero-description">
-                        Full Stack Developer | Professional Developer
+                        MERN Stack Developer
                         <br />
                         <br />
                         I build modern websites, apps, and scalable digital solutions with clean code and creative design.

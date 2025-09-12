@@ -27,21 +27,21 @@ const Skills = () => {
                     </div>
 
                     {/* Backend */}
-                    <div className="card">
+                    {/* <div className="card">
                         <i className="fab fa-node skill-icon" ></i>
                         <h3>Backend (Node.js & Express)</h3>
                         <p>
                             Developing APIs and server-side logic with <strong>Node.js</strong> and 
                             <strong> Express.js</strong> for scalable applications.
                         </p>
-                    </div>
+                    </div> */}
 
                     {/* Database */}
                     <div className="card">
                         <i className="fas fa-database skill-icon"></i>
-                        <h3>Database (MongoDB)</h3>
+                        <h3>Database (Firebase)</h3>
                         <p>
-                            Managing data with <strong>MongoDB</strong>, ensuring high performance and security.
+                            Managing data with <strong>Firebase</strong>, ensuring high performance and security.
                         </p>
                     </div>
 

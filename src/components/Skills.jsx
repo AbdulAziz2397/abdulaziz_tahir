@@ -8,64 +8,66 @@ const Skills = () => {
                 <div className="skill-text">
                     <h3>My <span>Skills</span></h3>
                     <p>
-                        As a <strong>MERN Stack Developer</strong>, I work with both frontend and backend 
-                        technologies to create <strong>scalable</strong>, <strong>secure</strong>, and 
+                        As a <strong>MERN Stack Developer</strong>, I work with both frontend and backend
+                        technologies to create <strong>scalable</strong>, <strong>secure</strong>, and
                         <strong> user-friendly</strong> applications. Here are the core tools and technologies I use:
                     </p>
                 </div>
 
                 <div className="skill-cards">
-                    
+
                     {/* Frontend */}
                     <div className="card">
                         <i className="fab fa-react skill-icon"></i>
-                        <h3>Frontend (React)</h3>
+                        <h3>Frontend Development</h3>
                         <p>
-                            Building dynamic UIs with <strong>React.js</strong>, <strong>HTML5</strong>, 
-                            <strong> CSS3</strong>, and <strong>JavaScript (ES6+)</strong>.
+                            Creating responsive and interactive user interfaces using React,
+                            HTML5, CSS3, TailwindCSS, and modern JavaScript (ES6+).
                         </p>
                     </div>
 
                     {/* Backend */}
-                    {/* <div className="card">
-                        <i className="fab fa-node skill-icon" ></i>
-                        <h3>Backend (Node.js & Express)</h3>
+                    <div className="card">
+                        <i className="fab fa-node skill-icon"></i>
+                        <h3>Backend Development</h3>
                         <p>
-                            Developing APIs and server-side logic with <strong>Node.js</strong> and 
-                            <strong> Express.js</strong> for scalable applications.
+                            Building secure and scalable REST APIs with Node.js and Express.js
+                            for robust server-side applications.
                         </p>
-                    </div> */}
+                    </div>
 
                     {/* Database */}
                     <div className="card">
                         <i className="fas fa-database skill-icon"></i>
-                        <h3>Database (Firebase)</h3>
+                        <h3>Database Management</h3>
                         <p>
-                            Managing data with <strong>Firebase</strong>, ensuring high performance and security.
+                            Designing and managing databases using MongoDB and Firebase with
+                            a focus on performance and data security.
                         </p>
                     </div>
 
                     {/* Version Control */}
                     <div className="card">
                         <i className="fab fa-git-alt skill-icon"></i>
-                        <h3>Version Control (Git & GitHub)</h3>
+                        <h3>Version Control</h3>
                         <p>
-                            Using <strong>Git</strong> and <strong>GitHub</strong> for collaboration, 
-                            code management, and project tracking.
+                            Managing codebases efficiently using Git and GitHub for collaboration,
+                            versioning, and project tracking.
                         </p>
                     </div>
 
                     {/* Deployment */}
                     <div className="card">
                         <i className="fas fa-cloud skill-icon"></i>
-                        <h3>Deployment</h3>
+                        <h3>Deployment & Hosting</h3>
                         <p>
-                            Hosting and deploying apps with <strong>Heroku</strong>, 
-                            <strong> Netlify</strong>, and <strong>Vercel</strong>.
+                            Deploying and maintaining applications on platforms like Vercel,
+                            Netlify, and Heroku.
                         </p>
                     </div>
 
                 </div>
+
             </div>
         </section>
     )

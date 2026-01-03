@@ -29,3 +29,15 @@ button:active {
   color: black;
   border: 1px solid black;
 }
+.contact-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #FACC15;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  border: 1px solid black;
+}

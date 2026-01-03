@@ -57,6 +57,11 @@
     font-size: 16px;
     font-weight: bold;
 }
+.contact-info>ul>li>a {
+    line-height: 41px;
+    font-size: 16px;
+    text-decoration: none;
+}
 
 .contact-info>ul>li>span {
     line-height: 41px;
@@ -95,6 +100,23 @@
 .contact-form>textarea::placeholder,
 .contact-form>input::placeholder {
     color: white;
+}
+
+.form-status {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.form-status.success {
+    color: #2ecc71;
+}
+
+.form-status.error {
+    color: #e74c3c;
+}
+
+.form-status.loading {
+    color: #f1c40f;
 }
 
 /* Responsive Design */

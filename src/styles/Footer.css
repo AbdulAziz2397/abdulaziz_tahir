@@ -38,16 +38,16 @@
     gap: 10px;
 }
 
-.footer-social>i {
+.footer-social>a>i {
     font-size: 24px;
     color: #1F2937;
 }
 
-.footer-social>i:hover {
+.footer-social>a>i:hover {
     color: #ffff;
 }
 
-.footer-social>i.fa-linkedin {
+.footer-social>a>i.fa-linkedin {
     color: #FACC15;
 }
 

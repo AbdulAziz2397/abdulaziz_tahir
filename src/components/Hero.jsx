@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/Hero.css'
-import HeroImg from '../assets/hero-images/nano-banana-2025-09-11T08-16-58.png';
+import HeroImg from '../assets/images/main-2-bg-rem.png';
 
 export const Hero = () => {
     return (

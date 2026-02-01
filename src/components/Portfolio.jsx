@@ -1,31 +1,34 @@
 import React from 'react';
 import '../styles/Portfolio.css';
+import PortfolioImg1 from '../assets/images/vyral-media.png';
+import PortfolioImg2 from '../assets/images/home-without-login.png';
+import PortfolioImg3 from '../assets/images/vyral-media.png';
 
 const projects = [
   {
-    title: 'E-commerce Website',
-    description: 'A full-stack e-commerce app with product management, cart, and checkout features.',
-    tech: 'React, Node.js, Express, MongoDB, Firebase',
-    image: 'https://shorturl.at/32Cok',
-    liveLink: 'https://your-ecommerce-site.netlify.app',
-    githubLink: 'https://github.com/yourusername/ecommerce-app'
+    title: 'Vyral Media',
+    description: 'A full-service digital marketing and branding agency website focused on making brands visible through strategy, content, and digital campaigns.',
+    tech: 'HTML, Tailwind CSS, JavaScript, GSAP',
+    image: PortfolioImg1,
+    liveLink: 'https://vyral.ae/',
+    githubLink: 'https://github.com/AbdulAziz2397/Vyral-Media.git'
   },
   {
-    title: 'Eye-Controlled Interface',
-    description: 'Assistive web app that uses eye movement and blinking to control UI actions.',
+    title: 'Darzify',
+    description: 'A location-based platform for finding nearby tailors, boutiques, and designers with easy order and measurement management.',
     tech: 'React, OpenCV.js, JavaScript',
-    image: 'https://shorturl.at/Ayngf',
-    liveLink: '#',
-    githubLink: 'https://github.com/yourusername/eye-control-app'
+    image: PortfolioImg2,
+    liveLink: 'https://darzify.netlify.app/',
+    githubLink: 'https://github.com/AbdulAziz2397/darzify.git'
   },
-  {
-    title: 'Portfolio Website',
-    description: 'Personal portfolio to showcase projects and skills.',
-    tech: 'React, CSS, Firebase Hosting',
-    image: 'https://shorturl.at/OAcTr',
-    liveLink: 'https://abdulaziz-tahir.netlify.app',
-    githubLink: 'https://github.com/yourusername/portfolio'
-  }
+  // {
+  //   title: 'Portfolio Website',
+  //   description: 'Personal portfolio to showcase projects and skills.',
+  //   tech: 'React, CSS, Firebase Hosting',
+  //   image: PortfolioImg3,
+  //   liveLink: 'https://abdulaziz-tahir.netlify.app',
+  //   githubLink: 'https://github.com/yourusername/portfolio'
+  // }
 ];
 
 const Portfolio = () => {

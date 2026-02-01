@@ -1,5 +1,5 @@
 import React from 'react'
-import AboutImage from '../assets/about-images/about-me.png'
+import AboutImage from '../assets/images/main-croped-removebg-preview.png'
 import '../styles/About.css'
 
 export const About = () => {

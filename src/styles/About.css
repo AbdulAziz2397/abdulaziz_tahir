@@ -22,12 +22,13 @@
     background-color: #0000;
     border: 10px solid #EAB308;
     border-radius: 20px;
+    overflow: hidden;
 }
 
 .about-media img {
     width: 427px;
     height: 427px;
-    margin: -36px 0px 2px 16px;
+    /* margin: -36px 0px 2px 16px; */
     border-radius: 20px;
     object-fit: cover;
 }

@@ -1,7 +1,7 @@
 /* ===== Skills Section (MERN Stack) ===== */
 .skills-sec {
     width: 100%;
-    background-color: #111827;
+    background-color: #020617;
     display: flex;
     justify-content: center;
     padding: 96px 165px;
@@ -42,7 +42,7 @@
 
 .skill-cards>.card {
     width: 350px;
-    background: #020617;
+    background:  #111827;
     padding: 32px;
     display: flex;
     flex-direction: column;

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Portfolio.css';
 import PortfolioImg1 from '../assets/images/vyral-media.png';
-import PortfolioImg2 from '../assets/images/home-without-login.png';
+import PortfolioImg2 from '../assets/images/Home-without-login.png';
 import PortfolioImg3 from '../assets/images/portfolio.png';
 
 const projects = [

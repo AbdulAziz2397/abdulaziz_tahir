@@ -44,8 +44,9 @@
     border-radius: 10px;
     overflow: hidden;
     width: 540px;
+    transition: transform 0.5s;
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    transition: transform 0.3s;
+    cursor: pointer;
 }
 
 .portfolio-card:hover {
